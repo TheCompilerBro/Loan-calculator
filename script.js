@@ -4,6 +4,10 @@ const amountInput = document.getElementById("amount");
 const interestInput = document.getElementById("interest");
 const yearsInput =document.getElementById("years");
 
+// resetBtn
+const resetBtn =document.getElementById("resetBtn");
+
+
 // loan Summary
 const monthlyPayment = document.getElementById("monthly");
 const totalPayment = document.getElementById("total");
@@ -57,6 +61,22 @@ function animateValue( element , start, end, duration){
 
 
 calculateBtn.addEventListener("click", calculateLoan);
+ // RESET BUTTON FUNCTION
+document.getElementById("resetBtn").addEventListener("click", function () {
+    // Clear all inputs
+    document.getElementById("amount").value = "";
+    document.getElementById("interest").value = "";
+    document.getElementById("years").value = "";
+
+    // Reset result values
+    document.getElementById("monthly").textContent = "₹ 0.00";
+    document.getElementById("total").textContent = "₹ 0.00";
+    document.getElementById("totalInterest").textContent = "₹ 0.00";
+
+     
+});
+
+
 
 });
 

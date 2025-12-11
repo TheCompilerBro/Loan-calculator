@@ -74,6 +74,7 @@ document.getElementById("resetBtn").addEventListener("click", function () {
     document.getElementById("totalInterest").textContent = "₹ 0.00";
 
      
+    
 });
 
 

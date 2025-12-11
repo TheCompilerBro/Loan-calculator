@@ -241,6 +241,9 @@ body {
     box-shadow: 0 2px 4px black;
   }
 
+  .container{
+    padding: 5rem;
+  }
   .input-section {
     padding-right: 50px;
     border-right: none;

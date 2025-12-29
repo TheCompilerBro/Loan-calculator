@@ -132,10 +132,39 @@ body {
   gap: 10px;
   margin: 25px;
 }
-
+.hidden{
+  display: none;
+}
 #calculateBtn:hover {
   background: #1a252f;
   transform: translateY(-2px);
+}
+#fdCalculateBtn{
+  width: 100%;
+  padding: 15px;
+  background: #223c56;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 25px;
+}
+#fdCalculateBtn:hover{
+  background: #1a252f;
+  transform: translateY(-2px);
+}
+#fdFrequency{
+  width: 100%;
+  padding: 12px 35px 12px 15px;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 0.8rem;
 }
 
 #resetBtn {
@@ -164,6 +193,48 @@ body {
 }
 #resetBtn:hover  i{
  transform: rotate(360deg);
+}
+#resetBtnFd {
+  width: 100%;
+  padding: 15px;
+  background: #1d5b99;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin: 25px;
+}
+#resetBtnFd i{
+  display: inline-block;
+  transition: transform 0.5s ease;
+}
+#resetBtnFd:hover{
+  background: #1a252f;
+  transform: translateY(-4px);
+}
+#resetBtnFd:hover  i{
+ transform: rotate(360deg);
+}
+
+
+.btn-group button {
+  margin: 8px;
+  padding: 10px 14px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-group button:hover {
+  background: #1d4ed8;
 }
 
 

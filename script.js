@@ -6,6 +6,18 @@ const yearsInput =document.getElementById("years");
 
 // resetBtn
 const resetBtn =document.getElementById("resetBtn");
+const resetBtnFd =document.getElementById("resetBtnFd");
+
+// Toggle sections
+document.getElementById("showLoan").onclick = () => {
+  loanSection.classList.remove("hidden");
+  fdSection.classList.add("hidden");
+};
+
+document.getElementById("showFD").onclick = () => {
+  fdSection.classList.remove("hidden");
+  loanSection.classList.add("hidden");
+};
 
 
 // loan Summary
@@ -72,10 +84,68 @@ document.getElementById("resetBtn").addEventListener("click", function () {
     document.getElementById("monthly").textContent = "₹ 0.00";
     document.getElementById("total").textContent = "₹ 0.00";
     document.getElementById("totalInterest").textContent = "₹ 0.00";
+    
 
      
     
 });
+document.getElementById("resetBtnFd").addEventListener("click", function () {
+    // Clear all inputs
+
+    document.getElementById("fdAmount").value = "";
+    document.getElementById("fdRate").value = "";
+    document.getElementById("fdYears").value = "";
+    // document.getElementById("fdFrequency").value = "Yearly";
+
+    // Reset result value
+    document.getElementById("fdMaturity").textContent = "₹ 0.00";
+  document.getElementById("fdInterest").textContent = "₹ 0.00";
+    
+
+     
+    
+});
+
+// fd
+function calculateFD() {
+  const P = parseFloat(document.getElementById("fdAmount").value);
+  const R = parseFloat(document.getElementById("fdRate").value) / 100;
+  const T = parseFloat(document.getElementById("fdYears").value);
+  const N = parseInt(document.getElementById("fdFrequency").value);
+
+  if (isNaN(P) || isNaN(R) || isNaN(T)) {
+    alert("Please enter valid values");
+    return;
+  }
+
+  const maturity = P * Math.pow(1 + R / N, N * T);
+  const interest = maturity - P;
+
+  document.getElementById("fdMaturity").textContent = `₹ ${maturity.toFixed(2)}`;
+  document.getElementById("fdInterest").textContent = `₹ ${interest.toFixed(2)}`;
+
+
+  animateValue(fdMaturity, 0, maturity,1000);
+  animateValue(fdInterest, 0, interest,1000);
+
+}
+function animateValue( element , start, end, duration){
+    const startTime = performance.now();
+
+    function update(currentTime){
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+
+        const current = start + (end-start)* progress;
+        element.textContent = current.toFixed(2);
+    
+    if (progress < 1){
+        requestAnimationFrame(update);
+        }
+    }
+    requestAnimationFrame(update);
+}
+fdCalculateBtn.addEventListener("click", calculateFD);
 
 
 
